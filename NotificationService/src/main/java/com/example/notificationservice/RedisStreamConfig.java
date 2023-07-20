@@ -18,6 +18,9 @@ public class RedisStreamConfig {
     @Autowired
     private OrderEventStreamListener orderEventStreamListener;
 
+    @Autowired
+    private PaymentEventStreamListener paymentEventStreamListener;
+
     @Bean
     public Subscription orderSubscription(RedisConnectionFactory factory){
         StreamMessageListenerContainer.StreamMessageListenerContainerOptions options =
@@ -51,7 +54,7 @@ public class RedisStreamConfig {
 
         Subscription subscription = listenerContainer.receiveAutoAck(
                 Consumer.from("notification-service-group","instance-1"),
-                StreamOffset.create("payment-events", ReadOffset.lastConsumed()),orderEventStreamListener);
+                StreamOffset.create("payment-events", ReadOffset.lastConsumed()),paymentEventStreamListener);
 
         listenerContainer.start();
 
