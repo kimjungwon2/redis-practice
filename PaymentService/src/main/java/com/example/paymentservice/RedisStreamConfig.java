@@ -30,7 +30,7 @@ public class RedisStreamConfig {
         StreamMessageListenerContainer listenerContainer = StreamMessageListenerContainer.create(factory,options);
 
         Subscription subscription = listenerContainer.receiveAutoAck(
-                Consumer.from("payment-service","instance-1"),
+                Consumer.from("payment-service-group","instance-1"),
                 StreamOffset.create("order-events", ReadOffset.lastConsumed()),orderEventStreamListener);
 
         listenerContainer.start();

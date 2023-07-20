@@ -12,5 +12,6 @@ public class OrderEventStreamListener implements StreamListener<String, MapRecor
     public void onMessage(MapRecord<String, String, String> message) {
         Map map = message.getValue();
 
+        System.out.println(map);
     }
 }
