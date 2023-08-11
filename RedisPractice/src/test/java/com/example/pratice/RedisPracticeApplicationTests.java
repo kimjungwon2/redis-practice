@@ -1,10 +1,10 @@
-package com.example.sessionstore;
+package com.example.pratice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SessionStoreApplicationTests {
+class RedisPracticeApplicationTests {
 
     @Test
     void contextLoads() {
